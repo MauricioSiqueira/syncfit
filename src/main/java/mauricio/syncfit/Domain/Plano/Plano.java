@@ -1,6 +1,6 @@
 package mauricio.syncfit.Domain.Plano;
 
-import mauricio.syncfit.Domain.Academia.Academia;
+import mauricio.syncfit.Domain.Beneficio.Beneficio;
 import mauricio.syncfit.Domain.Contrato.Contrato;
 import jakarta.persistence.*;
 import lombok.*;
@@ -17,21 +17,21 @@ public class Plano {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
-    @ManyToOne
-    @JoinColumn(name = "academia_id", nullable = false)
-    private Academia academia;
-
-    @Column(nullable = false)
+    @Column(nullable = false, length = 75)
     private String nome;
 
     @Column(nullable = false)
     private Boolean ativo;
 
     @Column(nullable = false)
-    private Long valor;
+    private float valor;
 
+    /// Ligacoes entre tabelas
     @OneToMany(mappedBy = "plano", orphanRemoval = true)
     private List<Contrato> contratos = new ArrayList<>();
+
+    @OneToMany(mappedBy = "plano", orphanRemoval = true)
+    private List<Beneficio> beneficios = new ArrayList<>();
 }

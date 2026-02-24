@@ -16,18 +16,13 @@ public class Contrato {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @ManyToOne
-    @JoinColumn(name = "aluno_id", nullable = false)
-    private Aluno aluno;
-
-    @ManyToOne
-    @JoinColumn(name = "plano_id", nullable = false)
-    private Plano plano;
+    private int id;
 
     @Column(nullable = false)
-    private Long vigencia;
+    private int vigencia;
+
+    @Column(nullable = false)
+    private EnumVigenciaContrato vigenciaUnidade;
 
     @Column(nullable = false)
     private Date dtInicio;
@@ -35,8 +30,17 @@ public class Contrato {
     private Date dtFinal;
 
     @Column(nullable = false)
-    private Boolean ativo;
+    private boolean ativo;
 
     @Column(nullable = false)
-    private Float valor;
+    private float valor;
+
+    /// Ligacoes entre tabelas
+    @ManyToOne
+    @JoinColumn(name = "aluno_id", nullable = false, foreignKey = @ForeignKey(name = "fk_contrato_aluno"))
+    private Aluno aluno;
+
+    @ManyToOne
+    @JoinColumn(name = "plano_id", nullable = false, foreignKey = @ForeignKey(name = "fk_contrato_plano"))
+    private Plano plano;
 }
