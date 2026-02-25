@@ -6,17 +6,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import mauricio.syncfit.Domain.Contrato.Contrato;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "alunos", uniqueConstraints = {
-        @UniqueConstraint(
-                name = "uk_aluno_cpf",
-                columnNames = "cpf"
-        )
-})
+//@Table(name = "aluno", uniqueConstraints = {
+//        @UniqueConstraint(
+//                name = "uk_aluno_cpf",
+//                columnNames = "cpf"
+//        )
+//})
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -32,11 +33,11 @@ public class Aluno {
     @Column(nullable = false, length = 11)
     private String cpf;
 
-    @Column(nullable = false, length = 11)
+    @Column(nullable = false, length = 70)
     private String nome;
 
     @Column(nullable = false)
-    private Date dtNascimento;
+    private LocalDate dt_nascimento;
 
     /// Ligacoes entre tabelas
     @OneToMany(mappedBy = "aluno", orphanRemoval = true)

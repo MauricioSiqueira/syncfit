@@ -4,11 +4,15 @@ import mauricio.syncfit.Domain.Aluno.Aluno;
 import mauricio.syncfit.Domain.Plano.Plano;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.cglib.core.Local;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
-@Table(name = "contratos")
+//@Table(name = "contrato")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,18 +26,18 @@ public class Contrato {
     private int vigencia;
 
     @Column(nullable = false)
-    private EnumVigenciaContrato vigenciaUnidade;
+    private EnumVigenciaContrato vigencia_unidade;
 
     @Column(nullable = false)
-    private Date dtInicio;
+    private LocalDateTime dt_inicio;
 
-    private Date dtFinal;
+    private LocalDate dt_final;
 
     @Column(nullable = false)
     private boolean ativo;
 
     @Column(nullable = false)
-    private float valor;
+    private BigDecimal valor;
 
     /// Ligacoes entre tabelas
     @ManyToOne

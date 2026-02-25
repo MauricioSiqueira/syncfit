@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import mauricio.syncfit.Domain.Plano.Plano;
 
 @Entity
-@Table(name = "beneficios")
+//@Table(name = "beneficio")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "planos")
+//@Table(name = "plano")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -24,9 +24,6 @@ public class Plano {
 
     @Column(nullable = false)
     private Boolean ativo;
-
-    @Column(nullable = false)
-    private float valor;
 
     /// Ligacoes entre tabelas
     @OneToMany(mappedBy = "plano", orphanRemoval = true)
