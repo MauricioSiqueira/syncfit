@@ -18,6 +18,16 @@ import java.util.Date;
 @AllArgsConstructor
 public class Contrato {
 
+    public Contrato(int vigencia, EnumVigenciaContrato vigencia_unidade, LocalDateTime dt_inicio, LocalDate dt_final, boolean ativo, BigDecimal valor, Aluno aluno) {
+        this.vigencia = vigencia;
+        this.vigencia_unidade = vigencia_unidade;
+        this.dt_inicio = dt_inicio;
+        this.dt_final = dt_final;
+        this.ativo = ativo;
+        this.valor = valor;
+        this.aluno = aluno;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

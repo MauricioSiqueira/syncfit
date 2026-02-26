@@ -23,9 +23,18 @@ import java.util.List;
 @AllArgsConstructor
 public class Aluno {
 
+    public Aluno(String senha, String cpf, String nome, LocalDate dt_nascimento) {
+        this.senha = senha;
+        this.cpf = cpf;
+        this.nome = nome;
+        this.dt_nascimento = dt_nascimento;
+        this.contratos = contratos;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
 
     @Column(nullable = false, length = 16)
     private String senha;
@@ -40,6 +49,6 @@ public class Aluno {
     private LocalDate dt_nascimento;
 
     /// Ligacoes entre tabelas
-    @OneToMany(mappedBy = "aluno", orphanRemoval = true)
+    @OneToMany(mappedBy = "aluno", orphanRemoval = true, cascade = CascadeType.ALL)
     private List<Contrato> contratos = new ArrayList<>();
 }
