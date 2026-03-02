@@ -4,7 +4,6 @@ import mauricio.syncfit.Domain.Aluno.Aluno;
 import mauricio.syncfit.Domain.Plano.Plano;
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.cglib.core.Local;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -17,17 +16,6 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Contrato {
-
-    public Contrato(int vigencia, EnumVigenciaContrato vigencia_unidade, LocalDateTime dt_inicio, LocalDate dt_final, boolean ativo, BigDecimal valor, Aluno aluno) {
-        this.vigencia = vigencia;
-        this.vigencia_unidade = vigencia_unidade;
-        this.dt_inicio = dt_inicio;
-        this.dt_final = dt_final;
-        this.ativo = ativo;
-        this.valor = valor;
-        this.aluno = aluno;
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

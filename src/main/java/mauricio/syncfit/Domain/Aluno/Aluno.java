@@ -8,7 +8,6 @@ import mauricio.syncfit.Domain.Contrato.Contrato;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -28,13 +27,11 @@ public class Aluno {
         this.cpf = cpf;
         this.nome = nome;
         this.dt_nascimento = dt_nascimento;
-        this.contratos = contratos;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
 
     @Column(nullable = false, length = 16)
     private String senha;

@@ -7,10 +7,13 @@ import mauricio.syncfit.dto.AlunoOutputDto;
 import mauricio.syncfit.dto.ContratoOutputDto;
 import org.mapstruct.Mapper;
 
+import java.util.List;
+import java.util.Optional;
+
 @Mapper(componentModel = "spring")
 public interface AlunoMapper {
-
-    AlunoOutputDto toDTO(Aluno aluno);
-
+    AlunoOutputDto toDTO(Optional<Aluno> aluno);
     ContratoOutputDto toContratoOutputDto(Contrato contrato);
+
+    List<AlunoOutputDto> toDTO(List<Aluno> alunos);
 }

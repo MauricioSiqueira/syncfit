@@ -27,12 +27,10 @@ LocalDate dt_final,
 @NotBlank(message = "Informar se ativo.")
 boolean ativo,
 @NotBlank(message = "Informar o valor do contrato.")
-BigDecimal valor
-//
-//@NotBlank(message = "Informar o plano.")
-//int plano_id
+BigDecimal valor,
+
+@NotBlank(message = "Informar o plano.")
+int plano_id
+
 ){
-    public Contrato toModel(Aluno aluno) {
-        return new Contrato(vigencia, vigencia_unidade, dt_inicio, dt_final, true, valor, aluno);
-    }
 };

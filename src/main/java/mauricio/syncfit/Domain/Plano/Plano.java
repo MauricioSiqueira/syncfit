@@ -14,7 +14,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Plano {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
