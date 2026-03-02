@@ -12,8 +12,8 @@ import java.util.Map;
 @RestControllerAdvice
 public class GlobalExceptionsHandler {
 
-    @ExceptionHandler(IdNotFoundException.class)
-    public ResponseEntity<Object> handleRecursoNotFound(IdNotFoundException ex){
+    @ExceptionHandler(NotFoundException.class)
+    public ResponseEntity<Object> handleRecursoNotFound(NotFoundException ex){
         Map<String, Object> body = new LinkedHashMap<>();
         body.put("timestamp", LocalDateTime.now());
         body.put("Status", HttpStatus.NOT_FOUND.value());
