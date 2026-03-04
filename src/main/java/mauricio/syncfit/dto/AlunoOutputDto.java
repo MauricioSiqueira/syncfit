@@ -17,5 +17,4 @@ public class AlunoOutputDto {
     private String cpf;
     private String nome;
     private LocalDate dt_nascimento;
-    private List<ContratoOutputDto> contratos;
 }

@@ -1,0 +1,40 @@
+
+//src/main/proto/pokemon.proto
+syntax = "proto3";
+
+option java_package = "mauricio.syncfit";
+option java_outer_classname = "PokemonProto";
+
+service PokemonService {
+  rpc ListPokes (PokemonRequest) returns (PokemonList);
+  rpc GetPoke (GetPokeRequest) returns (PokemonData);
+  rpc GetPokeByName (GetPokeRequestByName) returns (PokemonData);
+  rpc GetPokesByList (GetPokesVinculo) returns (PokemonList);
+}
+
+message PokemonRequest {}
+
+message GetPokeRequest {
+  int32 id = 1;
+}
+
+message GetPokeRequestByName{
+  string name = 1;
+}
+
+message PokemonList {
+  repeated PokemonData pokes = 1;
+}
+
+message PokemonData {
+  int32 id = 1;
+  string name = 2;
+}
+
+message Ids{
+  int32 id = 1;
+}
+
+message GetPokesVinculo{
+  repeated Ids id = 1;
+}
