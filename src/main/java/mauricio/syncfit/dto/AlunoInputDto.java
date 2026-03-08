@@ -1,6 +1,7 @@
 package mauricio.syncfit.dto;
 
 import jakarta.validation.constraints.*;
+import mauricio.syncfit.Helper.CustomAnnotations.ValidCPF;
 import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDate;
@@ -15,7 +16,7 @@ public record AlunoInputDto(
         String senha,
 
         @NotBlank(message = "CPF é obrigatório.")
-        @CPF(message = "CPF inválido.")
+        @ValidCPF(message = "CPF inválido.")
         String cpf,
 
         @NotBlank(message = "Informar o nome do aluno.")
