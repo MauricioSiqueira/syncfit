@@ -2,10 +2,8 @@ package mauricio.syncfit.dto;
 
 import jakarta.validation.constraints.*;
 import mauricio.syncfit.Helper.CustomAnnotations.ValidCPF;
-import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDate;
-import java.util.List;
 
 public record AlunoInputDto(
         @NotBlank(message = "A senha é obrigatória.")
@@ -27,4 +25,4 @@ public record AlunoInputDto(
         @Past(message = "A data de nascimento deve estar no passado.")
         LocalDate dt_nascimento
 ){
-};
+}
