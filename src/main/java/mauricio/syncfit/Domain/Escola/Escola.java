@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import mauricio.syncfit.Domain.AlunoEscola.AlunoEscola;
 import mauricio.syncfit.Domain.Pokemons.Pokemon;
 
 import java.util.ArrayList;
@@ -29,8 +30,10 @@ public class Escola {
     @Column(nullable = true, length = 255)
     private String endereco;
 
-    @OneToMany(mappedBy = "escola")
+    @OneToMany(mappedBy = "escola", cascade = CascadeType.ALL, orphanRemoval = true)
     List<Pokemon> pokemons = new ArrayList<>();
 
 
+    @OneToMany(mappedBy = "escola", cascade = CascadeType.ALL, orphanRemoval = true)
+    List<AlunoEscola> alunos = new ArrayList<>();
 }

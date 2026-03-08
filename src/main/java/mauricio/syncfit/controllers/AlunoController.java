@@ -5,6 +5,8 @@ import mauricio.syncfit.Domain.Aluno.Aluno;
 import mauricio.syncfit.Domain.ApiResponse;
 import mauricio.syncfit.dto.AlunoInputDto;
 import mauricio.syncfit.dto.AlunoOutputDto;
+import mauricio.syncfit.dto.EscolaEditInputDto;
+import mauricio.syncfit.dto.EscolaOutputDto;
 import mauricio.syncfit.services.AlunoService;
 import org.hibernate.mapping.UnionSubclass;
 import org.springframework.http.HttpStatus;
@@ -23,7 +25,7 @@ public class AlunoController {
     }
 
     @PostMapping("")
-    public ResponseEntity<ApiResponse> AddAlunos(@Valid @RequestBody AlunoInputDto input){
+    public ResponseEntity<ApiResponse> AddAlunos(@RequestBody @Valid AlunoInputDto input){
         service.add(input);
         ApiResponse response = new ApiResponse("Aluno Cadastrado com sucesso", 201);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
@@ -32,5 +34,20 @@ public class AlunoController {
     @GetMapping("")
     public ResponseEntity<List<AlunoOutputDto>> GetAll(){
         return ResponseEntity.ok(service.getAllAlunos());
+    }
+
+    @DeleteMapping("id/{id}")
+    public ResponseEntity<ApiResponse> Delete(@PathVariable int id){
+        return ResponseEntity.ok(service.Delete(id));
+    }
+
+    @PutMapping("")
+    public ResponseEntity<ApiResponse> EditAluno(@Valid @RequestBody AlunoInputDto input){
+        return ResponseEntity.ok(service.edit(input));
+    }
+
+    @GetMapping("id/{id}")
+    public ResponseEntity<AlunoOutputDto> GetById(@PathVariable int id){
+        return ResponseEntity.ok(service.getById(id));
     }
 }

@@ -1,6 +1,8 @@
 package mauricio.syncfit.services;
 
+import com.google.protobuf.Api;
 import mauricio.syncfit.Domain.Aluno.Aluno;
+import mauricio.syncfit.Domain.ApiResponse;
 import mauricio.syncfit.Mapper.AlunoMapper;
 import mauricio.syncfit.dto.AlunoInputDto;
 import mauricio.syncfit.dto.AlunoOutputDto;
@@ -31,13 +33,15 @@ public class AlunoService {
         repository.save(value);
     }
 
-    public void edit(AlunoInputDto input){
+    public ApiResponse edit(AlunoInputDto input){
         Aluno value = DtoToModel(input);
         repository.save(value);
+        return new ApiResponse("Aluno editado", 200);
     }
 
-    public void Delete(int id){
+    public ApiResponse Delete(int id){
         repository.deleteById(id);
+        return new ApiResponse("Aluno Deletado", 200);
     }
 
     public AlunoOutputDto getById(int id){

@@ -6,5 +6,6 @@ public record EscolaOutputDto(
         Long id,
         String nome,
         String endereco,
-        String email
+        String email,
+        List<PokemonOutputDto> pokemons
 ){ }

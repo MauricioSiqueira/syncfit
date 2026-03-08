@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import mauricio.syncfit.Domain.AlunoEscola.AlunoEscola;
+import mauricio.syncfit.Domain.Pokemons.Pokemon;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -43,4 +45,7 @@ public class Aluno {
 
     @Column(nullable = false)
     private LocalDate dt_nascimento;
+
+    @OneToMany(mappedBy = "aluno", cascade = CascadeType.ALL, orphanRemoval = true)
+    List<AlunoEscola> escolas = new ArrayList<>();
 }

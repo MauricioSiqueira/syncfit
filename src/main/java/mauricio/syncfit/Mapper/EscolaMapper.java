@@ -9,12 +9,10 @@ import org.mapstruct.Mapper;
 import java.util.List;
 import java.util.Optional;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {PokemonMapper.class})
 public interface EscolaMapper {
     Escola toModel(EscolaInputDto escola);
     Escola toModel(EscolaEditInputDto escola);
-
-    EscolaOutputDto toOutput(Optional<Escola> escola);
-
+    EscolaOutputDto toOutput(Escola escola);
     List<EscolaOutputDto> toListOutput(List<Escola> escola);
 }
